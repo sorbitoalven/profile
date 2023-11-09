@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+  <input type="text" id="firstNumber" placeholder="Enter the first number">
+  <input type="text" id="secondNumber" placeholder="Enter the second number">
+  <button onclick="calculateResult('+')">+</button>
+  <button onclick="calculateResult('-')">-</button>
+  <button onclick="calculateResult('*')">*</button>
+  <button onclick="calculateResult('/')">/</button>
+  <p id="result">Result: </p>
+  
+  <script>
+    function calculateResult(operator) {
+      const firstNumber = parseFloat(document.getElementById("firstNumber").value);
+      const secondNumber = parseFloat(document.getElementById("secondNumber").value);
+
+      if (isNaN(firstNumber) || isNaN(secondNumber)) {
+        alert("Please enter valid numbers");
+        return;
+      }
+
+      let result;
+
+      switch (operator) {
+        case '+':
+          result = firstNumber + secondNumber;
+          break;
+        case '-':
+          result = firstNumber - secondNumber;
+          break;
+        case '*':
+          result = firstNumber * secondNumber;
+          break;
+        case '/':
+          if (secondNumber !== 0) {
+            result = firstNumber / secondNumber;
+          } else {
+            result = "Division by zero is not allowed";
+          }
+          break;
+        default:
+          result = "Invalid operator";
+          break;
+      }
+
+      document.getElementById("result").textContent = "Result: " + result;
+    }
+  </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Vowel or Consonant Check Master</h1>
+  <input type="text" id="inputLetter" placeholder="Enter a letter">
+  <button onclick="checkLetter()">Check</button>
+  <p id="result"></p>
+
+  <script>
+    function checkLetter() {
+      const letter = document.getElementById("inputLetter").value.toLowerCase();
+
+      if (letter.length !== 1) {
+        document.getElementById("result").textContent = "Please enter a single letter.";
+        return;
+      }
+
+
+      let result;
+
+      switch (letter) {
+        case 'a':
+        case 'e':
+        case 'i':
+        case 'o':
+        case 'u':
+        case 'A':
+        case 'E':
+        case 'I':
+        case 'O':
+        case 'U':
+
+          result = "Vowel";
+          break;
+        default:
+          result = "Consonant";
+          break;
+      }
+
+      document.getElementById("result").textContent = `The letter "${letter}" is a ${result}.`;
+    }
+  </script>
+</body>
+</html>
